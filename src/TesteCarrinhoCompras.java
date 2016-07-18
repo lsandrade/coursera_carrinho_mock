@@ -36,5 +36,23 @@ public class TesteCarrinhoCompras {
 		mock1.verificaRecebimentoProduto("bermuda",70);
 		mock2.verificaRecebimentoProduto("bermuda",70);
 	}
+	
+	
+	@Test
+	public void continuaNotificandoComErroEmObservador(){
+		CarrinhoCompras c = new CarrinhoCompras();
+		MockObservadorCarrinho mock1 = new MockObservadorCarrinho();
+		ObservadorCarrinho mock2 = new MockObservadorComProblema();
+		//mock2.queroQueVoceDePau();
+		MockObservadorCarrinho mock3 = new MockObservadorCarrinho();
+		
+		c.adicionarObservador(mock1);
+		c.adicionarObservador(mock2);
+		c.adicionarObservador(mock3);
+
+		c.adicionaProduto(new Produto("bermuda",70));
+		mock1.verificaRecebimentoProduto("bermuda",70);
+		mock3.verificaRecebimentoProduto("bermuda",70);
+	}
 
 }
