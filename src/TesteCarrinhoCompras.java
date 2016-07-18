@@ -22,5 +22,19 @@ public class TesteCarrinhoCompras {
 		c.adicionaProduto(new Produto("bermuda",70));
 		mock.verificaRecebimentoProduto("bermuda",70);
 	}
+	
+	@Test
+	public void adicionarDoisObservadores(){
+		CarrinhoCompras c = new CarrinhoCompras();
+		MockObservadorCarrinho mock1 = new MockObservadorCarrinho();
+		MockObservadorCarrinho mock2 = new MockObservadorCarrinho();
+		
+		c.adicionarObservador(mock1);
+		c.adicionarObservador(mock2);
+
+		c.adicionaProduto(new Produto("bermuda",70));
+		mock1.verificaRecebimentoProduto("bermuda",70);
+		mock2.verificaRecebimentoProduto("bermuda",70);
+	}
 
 }
