@@ -17,4 +17,9 @@ public class CarrinhoCompras {
 		return total;
 	}
 
+	public void adicionarObservador(ObservadorCarrinho observador) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
